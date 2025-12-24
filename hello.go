@@ -3,7 +3,21 @@ package main
 import (
 	"fmt"
 	"strings"
+	"time"
 )
+
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(s)
+	}
+}
+
+func Caller() {
+	go say("world") // launch a goroutine
+	say("hello")    // main goroutine
+}
+
 
 func main() {
 	// defer exectues in form of a stack after the surrounding function returns
